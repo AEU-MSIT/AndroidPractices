@@ -1,27 +1,31 @@
 package com.aeu.msit.practices;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
-public class SecondActivity extends AppCompatActivity {
+public class EventHandlerActivity extends AppCompatActivity {
     String msg = "SecondActivityLog : ";
     Button bButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
-
+        setContentView(R.layout.activity_event_handler);
         Log.d(msg, "The onCreate() event");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
+        }
 
         bButton = findViewById(R.id.secondButton);
         bButton.setOnClickListener(v -> {
-            Intent i = new Intent(SecondActivity.this, MainActivity.class);
+            Intent i = new Intent(EventHandlerActivity.this, MainActivity.class);
             startActivity(i);
         });
     }

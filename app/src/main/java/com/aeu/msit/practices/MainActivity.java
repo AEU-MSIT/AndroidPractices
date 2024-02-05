@@ -1,16 +1,18 @@
 package com.aeu.msit.practices;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     String msg = "Practices : ";
-    Button bOpenSecondActivity;
+    ImageView bHomework1;
+    ImageView bHomework2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +20,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(msg, "The onCreate() event");
 
-        bOpenSecondActivity = findViewById(R.id.mainButton);
-        bOpenSecondActivity.setOnClickListener(v -> {
-            Intent i = new Intent(MainActivity.this, SecondActivity.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
+        }
+
+        bHomework1 = findViewById(R.id.mainHomework1);
+        bHomework2 = findViewById(R.id.mainHomework2);
+
+        bHomework1.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, EventHandlerActivity.class);
+            startActivity(i);
+        });
+
+        bHomework2.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, ExchangeRateActivity.class);
             startActivity(i);
         });
     }
