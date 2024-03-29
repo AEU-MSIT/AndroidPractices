@@ -11,8 +11,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     String msg = "Practices : ";
-    ImageView bHomework1;
-    ImageView bHomework2;
+    ImageView bHomework1, bHomework2, bHomework3, bHomework4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         bHomework1 = findViewById(R.id.mainHomework1);
         bHomework2 = findViewById(R.id.mainHomework2);
+        bHomework3 = findViewById(R.id.mainHomework3);
+        bHomework4 = findViewById(R.id.mainHomework4);
 
         bHomework1.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, EventHandlerActivity.class);
@@ -34,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
         bHomework2.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, ExchangeRateActivity.class);
+            startActivity(i);
+        });
+
+        bHomework3.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, ListViewActivity.class);
             startActivity(i);
         });
     }
