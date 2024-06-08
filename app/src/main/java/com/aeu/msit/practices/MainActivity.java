@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.aeu.msit.practices.features.childhealthcard.presentation.ChildHealthCardActivity;
+import com.aeu.msit.practices.features.eventhandle.EventHandlerActivity;
+import com.aeu.msit.practices.features.exchangerate.ExchangeRateActivity;
+import com.aeu.msit.practices.features.listview.ListViewActivity;
+
 public class MainActivity extends AppCompatActivity {
     String msg = "Practices : ";
     ImageView bHomework1, bHomework2, bHomework3, bHomework4;
@@ -19,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(msg, "The onCreate() event");
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
-        }
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
 
         bHomework1 = findViewById(R.id.mainHomework1);
         bHomework2 = findViewById(R.id.mainHomework2);
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         bHomework3.setOnClickListener(v -> {
             Intent i = new Intent(MainActivity.this, ListViewActivity.class);
             startActivity(i);
+        });
+
+        bHomework4.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, ChildHealthCardActivity.class));
         });
     }
 

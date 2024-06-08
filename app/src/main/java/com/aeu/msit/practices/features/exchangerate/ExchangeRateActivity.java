@@ -1,4 +1,4 @@
-package com.aeu.msit.practices;
+package com.aeu.msit.practices.features.exchangerate;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.aeu.msit.practices.R;
 
 import java.text.DecimalFormat;
 

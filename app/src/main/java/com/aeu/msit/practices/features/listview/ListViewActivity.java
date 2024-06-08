@@ -1,4 +1,4 @@
-package com.aeu.msit.practices;
+package com.aeu.msit.practices.features.listview;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -7,12 +7,16 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.aeu.msit.practices.R;
 
 public class ListViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
 
         ListView listView = findViewById(R.id.hw3ListView);
         ImageView back = findViewById(R.id.hw3Back);

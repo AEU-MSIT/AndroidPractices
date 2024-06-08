@@ -1,4 +1,4 @@
-package com.aeu.msit.practices;
+package com.aeu.msit.practices.features.eventhandle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -8,6 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+
+import com.aeu.msit.practices.MainActivity;
+import com.aeu.msit.practices.R;
 
 public class EventHandlerActivity extends AppCompatActivity {
     String msg = "SecondActivityLog : ";
@@ -19,9 +22,7 @@ public class EventHandlerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event_handler);
         Log.d(msg, "The onCreate() event");
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
-        }
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
 
         bButton = findViewById(R.id.secondButton);
         bButton.setOnClickListener(v -> {
